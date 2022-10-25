@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30114.105
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InvoiceProcessing.Core", "InvoiceProcessing.Core\InvoiceProcessing.Core.csproj", "{BCA71F70-6A87-431C-B692-8E6265667B72}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InvoiceProcessing.Test", "InvoiceProcessing.Test\InvoiceProcessing.Test.csproj", "{4DA1EA86-94EE-460D-A602-3B115DB2D8CC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BCA71F70-6A87-431C-B692-8E6265667B72}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BCA71F70-6A87-431C-B692-8E6265667B72}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BCA71F70-6A87-431C-B692-8E6265667B72}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BCA71F70-6A87-431C-B692-8E6265667B72}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4DA1EA86-94EE-460D-A602-3B115DB2D8CC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4DA1EA86-94EE-460D-A602-3B115DB2D8CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4DA1EA86-94EE-460D-A602-3B115DB2D8CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4DA1EA86-94EE-460D-A602-3B115DB2D8CC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
