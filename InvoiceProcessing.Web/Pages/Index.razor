@@ -1,0 +1,53 @@
+﻿@page "/"
+@using InvoiceProcessing.Web.DTO
+@using InvoiceProcessing.Core.Models
+@using InvoiceProcessing.Core.Services
+@inject IJSRuntime JS
+
+<PageTitle>Invoice Processing</PageTitle>
+
+<h2 class="fw-light">Welcome</h2>
+<p class="fw-light">Please enter the User ID to process the invoices.</p>
+
+<EditForm Model="@user" OnValidSubmit="HandleSubmit" class="d-flex gap-2 align-items-baseline">
+    <div class="flex-grow-1">
+        <InputNumber class="form-control fw-light" id="id" @bind-Value="user.Id" />
+        <ValidationSummary />
+    </div>
+
+    <button type="submit" class="btn btn-success text-black fw-normal">Find</button>
+    <button type="button" class="btn btn-outline-success fw-normal" @onclick="HandleClear">Clear</button>
+</EditForm>
+
+<InvoiceTypeZero Status="@invoiceDetail.StatusTypeZero" Invoices="@invoiceDetail.TypeZero" />
+<InvoiceTypeOne Status="@invoiceDetail.StatusTypeOne" Invoices="@invoiceDetail.TypeOne" />
+
+@if (isLoading)
+{
+    <Loading />
+}
+
+@code {
+    private User user = new();
+    private bool isLoading = false;
+    private InvoiceDetail invoiceDetail = new();
+    private InvoiceService invoiceService = new();
+
+    private async Task HandleSubmit()
+    {
+        isLoading = true;
+        invoiceDetail = await invoiceService.ProcessInvoices(user.Id);
+        if (invoiceDetail.StatusTypeZero == null && invoiceDetail.StatusTypeOne == null)
+        {
+            await JS.InvokeVoidAsync("displayMessage", $"User with ID [{user.Id}] was not found");
+        }
+        isLoading = false;
+        user.Id = 0;
+    }
+
+    private void HandleClear()
+    {
+        invoiceDetail = new();
+        user = new();
+    }
+}

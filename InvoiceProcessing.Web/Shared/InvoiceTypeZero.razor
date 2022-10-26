@@ -1,0 +1,53 @@
+@using InvoiceProcessing.Core.Models
+
+<section>
+    @if (Status != null)
+    {
+        <section class="mt-3 pt-2 border-top fw-light">
+            Invoices processed with the Code <span class="status">@Status</span>
+        </section>
+    }
+    @if (Invoices != null)
+    {
+        <section class="row row-cols-md-2 row-cols-xl-3 p-2">
+            @foreach (var invoice in Invoices)
+            {
+                <div class="p-1">
+                    <div class="card p-2 small">
+                        <p class="fw-light mb-0">
+                            Id:
+                            <span class="fw-bolder">@invoice.Id</span>
+                        </p>
+                        <p class="fw-light mb-0">
+                            Vrm:
+                            <span class="fw-bolder">@invoice.Vrm</span>
+                        </p>
+                        <p class="fw-light mb-0">
+                            EventStartDate:
+                            <span class="fw-bolder">@invoice.EventStartDate</span>
+                        </p>
+                        <p class="fw-light mb-0">
+                            EventEndDate:
+                            <span class="fw-bolder">@invoice.EventEndDate</span>
+                        </p>
+                        <p class="fw-light mb-0">
+                            Price:
+                            <span class="fw-bolder">@invoice.Price</span>
+                        </p>
+                        <p class="fw-light mb-0">
+                            FacilityId:
+                            <span class="fw-bolder">@invoice.FacilityId</span>
+                        </p>
+                    </div>
+                </div>
+            }
+        </section>
+    }
+</section>
+
+@code {
+    [Parameter]
+    public string? Status { get; set; }
+    [Parameter]
+    public IEnumerable<InvoiceJson>? Invoices { get; set; }
+}

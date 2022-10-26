@@ -44,7 +44,7 @@ public class InvoiceHttpUtil : IInvoiceHttpUtil
 
     private async Task<string?> SendInvoices(int userId, StringContent body)
     {
-        var response = await _httpClient.PostAsync($"{configuration["FetchUrl"]}/{userId}", body);
+        var response = await _httpClient.PostAsync($"{configuration["SendUrl"]}/{userId}", body);
         var content = await response.Content.ReadAsStringAsync();
         return JsonSerializer.Deserialize<string>(content);
     }
