@@ -1,4 +1,6 @@
 # Invoice Processing
+![Unit Test](https://github.com/loqo71la/invoice-processing/actions/workflows/coverage-analysis.yml/badge.svg)
+[![codecov](https://codecov.io/gh/loqo71la/invoice-processing/branch/main/graph/badge.svg?token=23X64UH813)](https://codecov.io/gh/loqo71la/invoice-processing)
 
 It is an demo library that will allow you to obtain pending invoices to be evaluated and processed on a required server.
 

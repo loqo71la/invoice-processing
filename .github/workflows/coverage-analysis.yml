@@ -1,0 +1,49 @@
+name: Coverage Analysis
+
+on:
+  pull_request:
+    branches: 
+      - main
+  push:
+    branches:
+      - main
+      - develop
+
+jobs:
+  coverage:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./InvoiceProcessing.Test
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Setup .NET Core SDK
+        uses: actions/setup-dotnet@v2.1.0
+        with:
+          dotnet-version: '6.0.x'
+
+      - name: Restore dependencies
+        run: dotnet restore
+
+      - name: Generate coverage report
+        run: dotnet test --collect:"XPlat Code Coverage" --settings runsettings.xml
+      
+      - uses: actions/upload-artifact@v3
+        with:
+          name: coverage
+          path: '**/coverage.cobertura.xml'
+
+  upload-to-codecov:
+    needs: [coverage]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Download artifacts
+        uses: actions/download-artifact@v3
+
+      - name: Upload to Codecov
+        uses: codecov/codecov-action@v2
