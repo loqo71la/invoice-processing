@@ -1,0 +1,10 @@
+version: '3.9'
+services:
+  invoice-processing:
+    container_name: invoice-processing
+    image: loqo71la/invoice-processing
+    environment:
+      FetchUrl: https://app.loqo71la.dev/api/school-management/student
+      SendUrl: https://app.loqo71la.dev/api/school-management/student
+    ports:
+      - 7154:80

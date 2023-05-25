@@ -1,12 +1,32 @@
 # Invoice Processing
-![Unit Test](https://github.com/loqo71la/invoice-processing/actions/workflows/coverage-analysis.yml/badge.svg)
+[![docker](https://img.shields.io/docker/v/loqo71la/invoice-processing)](https://hub.docker.com/r/loqo71la/invoice-processing)
+[![Unit Test](https://github.com/loqo71la/invoice-processing/actions/workflows/coverage.yml/badge.svg)](https://github.com/loqo71la/invoice-processing/actions/workflows/coverage.yml)
 [![codecov](https://codecov.io/gh/loqo71la/invoice-processing/branch/main/graph/badge.svg?token=23X64UH813)](https://codecov.io/gh/loqo71la/invoice-processing)
 
 It is an demo library that will allow you to obtain pending invoices to be evaluated and processed on a required server.
 
+# For Production
+## Prerequisites
+- [Docker](https://docs.docker.com/get-docker)
+## How to use
+The following steps will run a local instance of invoice processing.
+1. Clone this repository.
+```
+git clone https://github.com/loqo71la/invoice-processing.git
+```
+2. Navigate into the root project.
+```
+cd invoice-processing
+```
+3. Run the `docker compose` command.
+```
+docker compose up -d
+```
+Finally point your browser to [http://localhost:7154](http://localhost:7154).
+
 # For Developers
 ## Prerequisites
-- [Net Core](https://dotnet.microsoft.com/download)
+- [Net Core 6+](https://dotnet.microsoft.com/download)
 
 
 

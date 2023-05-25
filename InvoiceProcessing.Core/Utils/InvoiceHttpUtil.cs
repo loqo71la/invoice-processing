@@ -18,6 +18,7 @@ public class InvoiceHttpUtil : IInvoiceHttpUtil
     private static readonly IConfigurationRoot configuration= new ConfigurationBuilder()
             .SetBasePath(Directory.GetCurrentDirectory())
             .AddJsonFile("appsettings.json")
+            .AddEnvironmentVariables()
             .Build();
     private static readonly HttpClient _httpClient = new();
 
